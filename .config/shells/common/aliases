@@ -1,0 +1,48 @@
+alias ferox="docker run --name ferox --init -v ~/.config/feroxbuster/ferox-config.toml:/etc/feroxbuster/ferox-config.toml:Z -it epi052/feroxbuster:latest"
+
+alias dive="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive:latest"
+
+alias retdec="docker run --rm -it -v $(pwd):/tmp/files remnux/retdec:latest bash"
+
+alias vol="docker run --rm -it -v $(pwd):/data:ro blacktop/volatility:plugins $@"
+
+alias mkdocs="docker run -itd --user $(id -u):$(id -g) -p 8000:8000 -v $(pwd):/docs squidfunk/mkdocs-material:latest"
+
+alias cloudflair="docker run --rm --env-file=~/.config/censys.env christophetd/cloudflair"
+
+# replace ls with exa
+alias ls="exa -al --color=always --group-directories-first"
+alias la="exa -a --color=always --group-directories-first"
+alias ll="exa -l --color=always --group-directories-first"
+alias lt="exa -aT --color=always --group-directories-first"
+alias l.="exa -a | egrep '^\.'"
+
+# confirm before overwriting
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
+
+# adding flags
+alias df="df -h"
+alias free="free -m"
+alias lynx="lynx -cfg=~/.config/lynx/lynx.cfg -lss=~/.config/lynx/lynx.lss -vikeys"
+alias vifm="~/.config/vifm/scripts/vifmrun"
+alias ncmpcpp="ncmpccp ncmpccp_directory=$HOME/.config/ncpmcpp/"
+alias mocp="mocp -M '$XDG_CONFIG_HOME'/moc -O MOCDir='$XDG_CONFIG_HOME'/moc"
+
+# ps
+alias psa="ps auxf"
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+alias psmem="ps auxf | sort -nr -k 4"
+alias pscpu="ps auxf | sort -nr -k 3"
+
+# youtube-dl
+alias ytaaac="youtube-dl --restrict-filenames --extract-audio --audio-format aac"
+alias ytabest="youtube-dl --restrict-filenames --extract-audio --audio-format best"
+alias ytaflac="youtube-dl --restrict-filenames --extract-audio --audio-format flac"
+alias ytam4a="youtube-dl --restrict-filenames --extract-audio --audio-format m4a"
+alias ytamp3="youtube-dl --restrict-filenames --extract-audio --audio-format mp3"
+alias ytaopus="youtube-dl --restrict-filenames --extract-audio --audio-format opus"
+alias ytavorbis="youtube-dl --restrict-filenames --extract-audio --audio-format vorbis"
+alias ytawav="youtube-dl --restrict-filenames --extract-audio --audio-format wav"
+alias ytvbest="youtube-dl --restrict-filenames -f bestvideo+bestaudio"
