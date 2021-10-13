@@ -1,14 +1,33 @@
+#####################
+# Container Aliases #
+#####################
+
+# Composer
+alias composer="docker run --rm --user $(id -u):$(id -g)  -it --env COMPOSER_HOME --env COMPOSER_CACHE_DIR -v ${COMPOSER_HOME:-$HOME/.config/composer}:$COMPOSER_HOME -v ${COMPOSER_CACHE_DIR:-$HOME/.cache/composer}:$COMPOSER_CACHE_DIR -v $(pwd):/app composer"
+
+# Feroxbuster
 alias ferox="docker run --name ferox --init -v ~/.config/feroxbuster/ferox-config.toml:/etc/feroxbuster/ferox-config.toml:Z -it epi052/feroxbuster:latest"
 
+# Dive
 alias dive="docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive:latest"
 
+# Retdec
 alias retdec="docker run --rm -it -v $(pwd):/tmp/files remnux/retdec:latest bash"
 
+# Volatility
 alias vol="docker run --rm -it -v $(pwd):/data:ro blacktop/volatility:plugins $@"
 
+# MKDocs
 alias mkdocs="docker run -itd --user $(id -u):$(id -g) -p 8000:8000 -v $(pwd):/docs squidfunk/mkdocs-material:latest"
 
+# Cloudflair
 alias cloudflair="docker run --rm --env-file=~/.config/censys.env christophetd/cloudflair"
+
+# WPScan
+alias wpscan="docker run --rm -it wpscanteam/wpscan"
+
+# OWASP Amass
+alias amass="docker run --rm -v $(pwd):/.config/amass caffix/amass"
 
 # replace ls with exa
 alias ls="exa -al --color=always --group-directories-first"
